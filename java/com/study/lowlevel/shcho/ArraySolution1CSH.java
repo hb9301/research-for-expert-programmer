@@ -1,5 +1,7 @@
 package com.study.lowlevel.shcho;
 
+import java.util.Arrays;
+
 /**
  * 문제 설명
  * S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다.
@@ -23,8 +25,29 @@ package com.study.lowlevel.shcho;
 public class ArraySolution1CSH {
 
     public int solution(int[] d, int budget) {
+        if(budget < 1 || budget > 10000000){
+            System.out.println("budget range over.");
+            return 0;
+        }
+
         int answer = 0;
+        int total = 0;
+
+        Arrays.sort(d);
+        for(int i : d){
+            if((total+=i)<=budget) answer++;
+            else break;
+        }
+
         return answer;
+    }
+
+    public static void main(String[] args) {
+        ArraySolution1CSH arraySolution1CSH = new ArraySolution1CSH();
+        int[] d1 = {1,3,2,5,4};
+        int[] d2 = {2,2,3,3};
+        System.out.println( arraySolution1CSH.solution(d1, 9) );
+        System.out.println( arraySolution1CSH.solution(d2, 10) );
     }
 
 }
