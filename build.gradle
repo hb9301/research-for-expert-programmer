@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+ext {
+    gitTagVersion = 'git describe --tags --abbrev=0'.execute([], project.projectDir).text.trim()
+    spring_version = '5.2.12.RELEASE'
+    spring_security_version = '5.3.6.RELEASE'
+    spring_boot_version = '2.3.8.RELEASE'
+}
+
+group 'org.research'
+version '1.0-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}
+
+test {
+    useJUnitPlatform()
+}
+
