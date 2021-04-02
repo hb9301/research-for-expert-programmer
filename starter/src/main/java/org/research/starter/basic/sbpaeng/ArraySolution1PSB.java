@@ -1,5 +1,7 @@
 package org.research.starter.basic.sbpaeng;
 
+import java.util.Arrays;
+
 /**
  * 문제 설명
  * S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다.
@@ -24,6 +26,16 @@ public class ArraySolution1PSB {
 
     public int solution(int[] d, int budget) {
         int answer = 0;
+        Arrays.sort(d);
+
+        int sum = 0;
+        while (answer < d.length) {
+            sum += d[answer];
+            if (sum > budget) {
+                break;
+            }
+            answer++;
+        }
         return answer;
     }
 

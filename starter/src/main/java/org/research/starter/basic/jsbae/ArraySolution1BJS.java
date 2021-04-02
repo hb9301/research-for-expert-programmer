@@ -1,5 +1,7 @@
 package org.research.starter.basic.jsbae;
 
+import java.util.Arrays;
+
 /**
  * 문제 설명
  * S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다.
@@ -24,6 +26,17 @@ public class ArraySolution1BJS {
 
     public int solution(int[] d, int budget) {
         int answer = 0;
+        int total = 0;
+        Arrays.sort(d); // 올림차순
+
+        for(int a : d){
+            if(a + total <= budget){
+                total += a;
+                answer++;
+            }else{
+                break;
+            }
+        }
         return answer;
     }
 
