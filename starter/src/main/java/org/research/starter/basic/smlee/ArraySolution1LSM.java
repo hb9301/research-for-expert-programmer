@@ -24,12 +24,8 @@ import java.util.Arrays;
 
 public class ArraySolution1LSM {
 
-    public static void main() {
+    public static void main(int[] d1, int budget1) {
         ArraySolution1LSM arraySolution1LSM = new ArraySolution1LSM();
-        int[] d1 = {1,3,2,5,4};
-        int budget1 = 9;
-        //int[] d1 = {2,2,3,3};
-        //int budget1 = 10;
 
         // 제한사항 체크
         boolean validate = arraySolution1LSM.validate(d1, budget1);
