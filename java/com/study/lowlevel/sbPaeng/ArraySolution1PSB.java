@@ -1,4 +1,4 @@
-package com.study.lowlevel.sbpaeng;
+package com.study.lowlevel.sbPaeng;
 
 /**
  * 문제 설명
