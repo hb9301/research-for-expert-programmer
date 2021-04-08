@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class ArraySolution2PSB {
 
-    public static int solution(int[][] board, int[] moves) {
+    public int solution(int[][] board, int[] moves) {
         //board = new int[][]{{0,0,0,0,0},{0,0,1,0,3},{0,2,5,0,1},{4,2,4,4,2},{3,5,1,3,1}};
         //moves = new int[]{1,5,3,5,1,2,1,4};
         //4,3,1,1,3,2,4
@@ -25,7 +25,7 @@ public class ArraySolution2PSB {
         return result;
     }
 
-    public static int move(int[][] board, int move){
+    public int move(int[][] board, int move){
         int ball = 0;
         for(int j=0;j<board.length;j++){
             if(board[j][move]>0){
@@ -37,7 +37,7 @@ public class ArraySolution2PSB {
         return 0;
     }
 
-    public static int kill(ArrayList<Integer> basket){
+    public int kill(ArrayList<Integer> basket){
         int i =0;
         int result = 0;
         while(basket.size() > 1){
@@ -56,7 +56,7 @@ public class ArraySolution2PSB {
         return result;
     }
 
-    public static int[] subSolution(int[] arr){
+    public int[] subSolution(int[] arr){
         if(arr.length == 1){
             return new int[] {-1};
         }else{
@@ -67,9 +67,5 @@ public class ArraySolution2PSB {
             }
             return result;
         }
-    }
-
-    public static void main(String[] args) {
-        subSolution(new int[]{4,3,2,1});
     }
 }
