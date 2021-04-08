@@ -29,7 +29,7 @@ public class ArraySolution2BJS {
 
     // sub
     public int[] solution2(int[] arr){
-        if(arr.length == 1)
+        if(arr.length <= 1)
             return new int[]{-1};
         int min = Arrays.stream(arr).min().getAsInt(); // min은 항상 존재하기때문에 ifPresent 체크 필요 없음
         return Arrays.stream(arr).filter(n -> n != min).toArray();
