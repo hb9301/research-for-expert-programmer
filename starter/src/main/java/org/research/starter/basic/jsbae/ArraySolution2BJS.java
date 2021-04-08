@@ -1,4 +1,4 @@
-package com.study.lowlevel.jinseob;
+package org.research.starter.basic.jsbae;
 
 import java.util.Stack;
 
