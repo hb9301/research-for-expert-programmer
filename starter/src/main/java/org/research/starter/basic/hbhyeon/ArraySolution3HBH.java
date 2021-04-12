@@ -7,6 +7,18 @@ public class ArraySolution3HBH {
     public String[] solution1(String[] strings, int n) {
         String[] answer = {};
 
+//        너무 소름돋는 생각의 코드.....배워야함....
+//        answer = new String[strings.length];
+//        for(int i = 0; i < strings.length; i++){
+//            strings[i] = strings[i].charAt(n) + strings[i];
+//        }
+//
+//        Arrays.sort(strings);
+//
+//        for(int i = 0; i < strings.length; i++) {
+//            answer[i] = strings[i].substring(1,strings[i].length());
+//        }
+
         answer = new String[strings.length];
         //1차 사전순 정렬
         Arrays.sort(strings);
