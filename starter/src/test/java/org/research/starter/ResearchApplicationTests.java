@@ -1,5 +1,7 @@
 package org.research.starter;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.StopWatch;
@@ -7,6 +9,20 @@ import org.springframework.util.StopWatch;
 
 @SpringBootTest
 public class ResearchApplicationTests {
+
+    private StopWatch stopWatch;
+
+    @BeforeEach
+    void setup(){
+        stopWatch = new StopWatch();
+        stopWatch.start();
+    }
+
+    @AfterEach
+    void after(){
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
+    }
 
     @Test
     void contextLoads() {
