@@ -28,12 +28,15 @@ public class ArraySolution4CSH {
         }
 
         while (truck_count < truck_weights.length) {
+
+            weight_sum-=bridge.peek();
             if( bridge.poll() != 0) {
                 truck_count++;
             }
-            weight_sum = bridge.stream().mapToInt(i -> i).sum();
+
             if( trucks.size() != 0 && (weight >= weight_sum + trucks.peek())){
-                bridge.add(trucks.poll());
+                bridge.add(trucks.peek());
+                weight_sum+=trucks.poll();
             } else {
                 bridge.add(0);
             }
