@@ -1,9 +1,8 @@
-package org.research.starter.basic.shcho;
+package org.research.starter.basic.shcho.level2;
 
 import java.util.*;
-import java.util.function.Predicate;
 
-public class ArraySolution4CSH {
+public class Lv2Solution1CSH {
 
     /**
      * 4th Programming - stack/queue #5
@@ -51,8 +50,8 @@ public class ArraySolution4CSH {
         int weight=10;
         int[] truck_weights = {7, 4, 5, 6};
 
-        ArraySolution4CSH arraySolution4CSH = new ArraySolution4CSH();
-        System.out.println(arraySolution4CSH.solution(bridge_length,weight,truck_weights));
+        Lv2Solution1CSH lv2Solution1CSH = new Lv2Solution1CSH();
+        System.out.println(lv2Solution1CSH.solution(bridge_length,weight,truck_weights));
     }
 
 }

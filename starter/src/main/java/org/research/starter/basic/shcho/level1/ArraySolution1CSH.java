@@ -1,4 +1,4 @@
-package org.research.starter.basic.hbhyeon;
+package org.research.starter.basic.shcho.level1;
 
 import java.util.Arrays;
 
@@ -17,26 +17,26 @@ import java.util.Arrays;
  * budget은 예산을 나타내며, 1 이상 10,000,000 이하의 자연수입니다.
  *
  * 입출력 예
- * d	                budget	result
- * [1,3,2,5,4]	        9	    3
- * [2,2,3,3]	        10	    4
- * [1,5,4,3,2,1,3,4]	14	    3
+ * d	        budget	result
+ * [1,3,2,5,4]	9	    3
+ * [2,2,3,3]	10	    4
  */
 
-public class ArraySolution1HBH {
+public class ArraySolution1CSH {
 
     public int solution(int[] d, int budget) {
+        if(budget < 1 || budget > 10000000){
+            System.out.println("budget range over.");
+            return 0;
+        }
+
         int answer = 0;
+        int total = 0;
 
-        // 오름차 정렬 (최대한 많은 지원을 위해)
         Arrays.sort(d);
-
-        for(int pay : d) {
-            if(budget >= pay) {
-                budget = budget - pay;
-                answer++;
-            } else
-                break;
+        for(int i : d){
+            if((total+=i)<=budget) answer++;
+            else break;
         }
 
         return answer;

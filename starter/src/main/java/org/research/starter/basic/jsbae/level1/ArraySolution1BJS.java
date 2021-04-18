@@ -1,4 +1,4 @@
-package org.research.starter.basic.jsbae;
+package org.research.starter.basic.jsbae.level1;
 
 import java.util.Arrays;
 

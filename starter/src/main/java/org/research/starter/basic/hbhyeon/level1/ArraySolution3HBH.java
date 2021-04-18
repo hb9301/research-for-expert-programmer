@@ -1,4 +1,4 @@
-package org.research.starter.basic.hbhyeon;
+package org.research.starter.basic.hbhyeon.level1;
 
 import java.util.*;
 

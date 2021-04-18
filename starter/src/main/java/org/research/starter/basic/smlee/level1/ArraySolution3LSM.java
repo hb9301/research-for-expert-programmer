@@ -1,4 +1,4 @@
-package org.research.starter.basic.smlee;
+package org.research.starter.basic.smlee.level1;
 
 import java.util.*;
 
