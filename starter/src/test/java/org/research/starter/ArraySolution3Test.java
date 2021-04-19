@@ -1,7 +1,7 @@
 package org.research.starter;
 
 import org.junit.jupiter.api.Test;
-import org.research.starter.basic.jsbae.ArraySolution3BJS;
+import org.research.starter.basic.jsbae.level1.ArraySolution3BJS;
 
 import java.util.Arrays;
 
@@ -10,7 +10,6 @@ public class ArraySolution3Test extends ResearchApplicationTests{
     @Test
     void solution1(){
         String[] testCase = new String[]{"sun", "bed", "car", "jin", "meta","air", "abc","def","messi","ronaldo", "king","queen","cup","log","debug","gradle","java"};
-        //±â´ë°ª gradle, debug, abc, bed, queen, def, log, jin, king, ronaldo, sun, cup, air, car, messi, meta, java
         System.out.println("Answer : " + Arrays.toString(new ArraySolution3BJS().solution(testCase, 2)));
     }
 

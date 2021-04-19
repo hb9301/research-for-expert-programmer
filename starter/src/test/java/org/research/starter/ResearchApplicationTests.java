@@ -1,41 +1,60 @@
 package org.research.starter;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.StopWatch;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 
 
 @SpringBootTest
 public class ResearchApplicationTests {
 
-    private StopWatch stopWatch;
+    private final ArrayList<String> classNameList = new ArrayList<>(Arrays.asList("HBH", "BJS", "PSB", "CSH", "LSM"));
+    private final HashMap<String, String> packageMap = new HashMap<String, String>(){{
+        put("HBH", "hbhyeon");
+        put("BJS", "jsbae");
+        put("PSB", "sbpaeng");
+        put("CSH", "shcho");
+        put("LSM", "smlee");
+    }};
+    private final String level = "level1";
 
-    @BeforeEach
-    void setup(){
-        stopWatch = new StopWatch();
-        stopWatch.start();
-    }
-
-    @AfterEach
-    void after(){
-        stopWatch.stop();
-        System.out.println(stopWatch.prettyPrint());
-    }
+    // 테스트마다 변수는 그때그때 지정
+    private final Class<?>[] paramList = new Class<?>[]{Array.newInstance(int.class, 5).getClass(), int.class};
 
     @Test
-    void contextLoads() {
+    void randomStartTest() {
+
+        String commonClass = "ArraySolution1";
+        Collections.shuffle(classNameList);
 
         StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
 
-//        System.out.println(new ArraySolution2HBH().solution(new int[][]{{0,0,0,0,0}, {0,0,1,0,3}, {0,2,5,0,1}, {4,2,4,4,2}, {3,5,1,3,1}}, new int[]{1,5,3,5,1,2,1,4}));
-//        System.out.println(Arrays.toString(new ArraySolution2HBH().subSolution(new int[]{4, 3, 1, 2, 5})));
+        for(String className : classNameList) {
+            stopWatch.start();
 
+            try {
+                Class<?> cls = Class.forName("org.research.starter.basic." + packageMap.get(className) + "." + level + "." + commonClass + className);
+                Constructor<?> constructor = cls.getConstructor();
+                Object testClass = constructor.newInstance();
+                Method method = cls.getMethod("solution", paramList);
 
-        stopWatch.stop();
-        System.out.println(stopWatch.prettyPrint());
+                // 테스트마다 변수는 그때그때 지정
+                System.out.println(method.invoke(testClass, new int[]{1,3,2,5,4}, 9));
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            stopWatch.stop();
+            System.out.println(stopWatch.prettyPrint());
+        }
 
     }
 
