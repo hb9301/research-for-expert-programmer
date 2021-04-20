@@ -1,8 +1,8 @@
 package org.research.starter;
 
 import org.junit.jupiter.api.Test;
+import org.research.starter.util.StopWatchUtil;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.StopWatch;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -35,16 +35,17 @@ public class ResearchApplicationTests {
         String commonClass = "Lv2Solution1";
         Collections.shuffle(classNameList);
 
-        StopWatch stopWatch = new StopWatch();
+        StopWatchUtil stopWatchUtil = new StopWatchUtil();
 
         for(String className : classNameList) {
-            stopWatch.start();
 
             try {
                 Class<?> cls = Class.forName("org.research.starter.basic." + packageMap.get(className) + "." + level + "." + commonClass + className);
                 Constructor<?> constructor = cls.getConstructor();
                 Object testClass = constructor.newInstance();
                 Method method = cls.getMethod("solution", paramList);
+
+                stopWatchUtil.start();
 
                 // 테스트마다 변수는 그때그때 지정
                 //2,10,new int[]{7,4,5,6}
@@ -56,8 +57,8 @@ public class ResearchApplicationTests {
                 e.printStackTrace();
             }
 
-            stopWatch.stop();
-            System.out.println(stopWatch.prettyPrint());
+            stopWatchUtil.stop();
+            System.out.println(stopWatchUtil.prettyPrint(classNameList, packageMap));
         }
 
     }
