@@ -24,15 +24,15 @@ public class ResearchApplicationTests {
         put("CSH", "shcho");
         put("LSM", "smlee");
     }};
-    private final String level = "level1";
+    private final String level = "level2";
 
     // 테스트마다 변수는 그때그때 지정
-    private final Class<?>[] paramList = new Class<?>[]{Array.newInstance(int.class, 5).getClass(), int.class};
+    private final Class<?>[] paramList = new Class<?>[]{int.class,int.class,Array.newInstance(int.class, 5).getClass()};
 
     @Test
     void randomStartTest() {
 
-        String commonClass = "ArraySolution1";
+        String commonClass = "Lv2Solution1";
         Collections.shuffle(classNameList);
 
         StopWatch stopWatch = new StopWatch();
@@ -47,8 +47,11 @@ public class ResearchApplicationTests {
                 Method method = cls.getMethod("solution", paramList);
 
                 // 테스트마다 변수는 그때그때 지정
-                ////8000,4000,new int[]{3800,10,15,20,20,20,30,3800,300,200,200,2000,100,100,100,200,200,200,1000,200,3000,100,500,200,900,1000,2000,4000,100,3000,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,3000,2000,1000,300,400,500,600,700,800,900,1000,1000,1200,1300,1400,1500,1600,1700,1800,1900,100,10,15,900,70,1000,3000,1000,200,200,400,900,2000,2100,2200,2300,2400,2600,160,170,180,190,200,300,400,500,600,700,800,900}
-                System.out.println(method.invoke(testClass, new int[]{1,3,2,5,4}, 9));
+                //2,10,new int[]{7,4,5,6}
+                //100,100,new int[]{10}
+                //100,100,new int[]{10,10,10,10,10,10,10,10,10,10}
+                //8000,4000,new int[]{3800,10,15,20,20,20,30,3800,300,200,200,2000,100,100,100,200,200,200,1000,200,3000,100,500,200,900,1000,2000,4000,100,3000,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,3000,2000,1000,300,400,500,600,700,800,900,1000,1000,1200,1300,1400,1500,1600,1700,1800,1900,100,10,15,900,70,1000,3000,1000,200,200,400,900,2000,2100,2200,2300,2400,2600,160,170,180,190,200,300,400,500,600,700,800,900}
+                System.out.println(method.invoke(testClass, 2,10,new int[]{7,4,5,6}));
             } catch (Exception e){
                 e.printStackTrace();
             }
