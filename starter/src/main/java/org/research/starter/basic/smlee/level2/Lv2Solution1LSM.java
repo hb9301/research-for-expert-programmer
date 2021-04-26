@@ -6,8 +6,8 @@ import java.util.Queue;
 public class Lv2Solution1LSM {
 
     /**
-     * 4번문제 (https://programmers.co.kr/learn/courses/30/lessons/42583)
-     * 다리를 지나는 트럭
+     * 4번문제[2레벨 1번] (https://programmers.co.kr/learn/courses/30/lessons/42583)
+     * 다리를 지나는 트럭(Stack / Queue)
      */
     public int solution(int bridge_length, int weight, int[] truck_weights) {
         int answer = 0;
